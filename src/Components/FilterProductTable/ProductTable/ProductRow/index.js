@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import { observer } from "mobx-react";
+@observer
 class ProductRow extends Component {
   checkStock = () => {
     const name = this.props.product.stocked ? (

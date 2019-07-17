@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import SearchBar from "./SearchBar";
 import ProductTable from "./ProductTable";
 import { observer } from "mobx-react";
-import { observable } from "mobx";
+import { observable, computed } from "mobx";
 import { action } from "mobx";
+
 @observer
 class FilterProductTable extends Component {
-  @observable filterText: "";
-  @observable isStockOnly: false;
+  @observable filterText: string = "";
+  @observable isStockOnly: boolean = false;
 
   @action handleChange = e => {
     this.filterText = e.target.value;
@@ -15,45 +16,27 @@ class FilterProductTable extends Component {
   @action handleCheck = e => {
     this.isStockOnly = !this.isStockOnly;
   };
-  render() {
-    const products = [
-      {
-        category: "Sporting Goods",
-        price: "$49.99",
-        stocked: true,
-        name: "Football"
-      },
-      {
-        category: "Sporting Goods",
-        price: "$9.99",
-        stocked: true,
-        name: "Baseball"
-      },
-      {
-        category: "Sporting Goods",
-        price: "$29.99",
-        stocked: false,
-        name: "Basketball"
-      },
-      {
-        category: "Electronics",
-        price: "$99.99",
-        stocked: true,
-        name: "iPod Touch"
-      },
-      {
-        category: "Electronics",
-        price: "$399.99",
-        stocked: false,
-        name: "iPhone 5"
-      },
-      {
-        category: "Electronics",
-        price: "$199.99",
-        stocked: true,
-        name: "Nexus 7"
+
+  @computed get checkProducts() {
+    const filteredProducts = [];
+
+    this.props.products.forEach(element => {
+      if (element.name.indexOf(this.filterText) !== -1) {
+        if (this.isStockOnly === true) {
+          if (element.stocked === true) {
+            filteredProducts.push(element);
+          }
+        } else {
+          filteredProducts.push(element);
+        }
+        console.log(element);
       }
-    ];
+    });
+
+    return filteredProducts;
+  }
+
+  render() {
     return (
       <>
         <SearchBar
@@ -61,9 +44,8 @@ class FilterProductTable extends Component {
           handlerFromChildCheck={this.handleCheck}
         />
         <ProductTable
-          products={products}
-          filterText={this.filterText}
-          isStockOnly={this.isStockOnly}
+          products={this.props.products}
+          filteredProducts={this.checkProducts}
         />
       </>
     );

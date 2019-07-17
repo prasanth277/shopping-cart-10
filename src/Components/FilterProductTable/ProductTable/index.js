@@ -7,22 +7,14 @@ class ProductTable extends Component {
   checkProducts = () => {
     const rows = [];
     var category = "";
-    this.props.products.forEach(element => {
-      if (element.name.indexOf(this.props.filterText) !== -1) {
-        if (element.category !== category) {
-          rows.push(<ProductCategoryRow categoryName={element} />);
-        }
-        if (this.props.isStockOnly === true) {
-          if (element.stocked === true) {
-            rows.push(<ProductRow product={element} />);
-          }
-        } else {
-          rows.push(<ProductRow product={element} />);
-        }
-
-        category = element.category;
+    this.props.filteredProducts.forEach(element => {
+      if (element.category !== category) {
+        rows.push(<ProductCategoryRow categoryName={element} />);
       }
+      rows.push(<ProductRow product={element} />);
+      category = element.category;
     });
+
     return rows;
   };
   render() {
