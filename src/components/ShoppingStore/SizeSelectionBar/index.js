@@ -3,8 +3,7 @@ import "./style.css";
 import SizeOptions from "./SizeOptions";
 export default class SizeSelectionBar extends Component {
   displaySizes = () => {
-    const sizes = ["XS", "S", "M", "ML", "L", "XL", "XXL"];
-    return sizes.map(size => <SizeOptions size={size} />);
+    return this.props.sizes.map(size => <SizeOptions size={size} />);
   };
   render() {
     return (
