@@ -1,0 +1,35 @@
+***React Components***
+
+	-ShoppingStore
+		-SizeSelectionBar
+			-SizeLabel
+			-SizeOptions
+		-PoductsContainer
+			-StoreHeader
+				-ProductsFound
+				-SortByOption
+			-ProductsList
+				-Product
+					-ProductImage
+					-ProductDetails
+					-AddToCartButton
+		-ShoppingCart
+			-CartImage
+			-CartItemsList
+				-CartItem
+			-CartItemsTotal
+***MObX Store***
+	-ProductStore
+		cartStoreInstance
+		productsList(var)
+		productSizeFilter(state)
+		sortByOption(state)
+		filterProdcts(action)
+	-CartStore
+		cartItemsList(state)
+		sumOfCartItems(compute)
+		
+***MobX Model***
+	-ProductItem
+		addToCart(action)
+		removeFromCart(action)

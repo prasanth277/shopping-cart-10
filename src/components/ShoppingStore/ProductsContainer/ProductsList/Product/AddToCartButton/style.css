@@ -1,0 +1,22 @@
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+.addToCartbutton {
+  height: 65px;
+  width: 270px;
+  margin: 10px;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 18px;
+}
+.addToCartbuttonActive {
+  height: 65px;
+  width: 270px;
+  margin: 10px;
+  border: none;
+  background: rgb(255, 196, 0);
+  color: white;
+  font-size: 18px;
+}

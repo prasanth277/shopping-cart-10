@@ -1,0 +1,21 @@
+.productImageContainer {
+  position: relative;
+}
+.productImage {
+  width: 300px;
+  height: 450px;
+}
+.shippingText {
+  font-size: 12px;
+}
+.shippingDiv {
+  position: absolute;
+  left: 210px;
+  background: black;
+  color: white;
+  width: 90px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

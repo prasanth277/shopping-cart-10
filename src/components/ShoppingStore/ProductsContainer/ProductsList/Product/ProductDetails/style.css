@@ -1,0 +1,31 @@
+.productDetailsContainer {
+  width: 300px;
+  height: 120px;
+}
+.productTitle {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.productTitleText {
+  font-size: large;
+}
+.productPrice {
+  font-size: 20px;
+  font-weight: bold;
+}
+.priceContainer {
+  display: flex;
+  justify-content: center;
+}
+.installMentsContainer {
+  color: rgb(168, 168, 168);
+  display: flex;
+  justify-content: center;
+}
+.installmentsText {
+  font-size: 20px;
+  font-weight: bold;
+}
