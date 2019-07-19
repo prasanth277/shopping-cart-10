@@ -1,0 +1,18 @@
+.selectionBar {
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sizeLabel {
+  height: 80px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.sizeText {
+  font-weight: bold;
+  font-size: x-large;
+}
+.sizeCon {
+  width: 20%;
+}
