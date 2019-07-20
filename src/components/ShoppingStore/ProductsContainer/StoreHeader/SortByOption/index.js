@@ -6,11 +6,14 @@ export default class SortByOption extends Component {
       <option value={element.value}>{element.label}</option>
     ));
   };
+  changeSortFilter = e => {
+    this.props.productStore.changeSortFilter(e.target.value);
+  };
   render() {
     return (
       <div>
         <span>Order by </span>
-        <select>
+        <select onChange={this.changeSortFilter}>
           <option value="" disabled selected>
             Select
           </option>

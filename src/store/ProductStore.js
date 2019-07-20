@@ -27,13 +27,15 @@ class ProductStore {
   }
   @action changeSortFilter(sortType) {
     this.sortByOptionFilter = sortType;
+    console.log(this.sortByOptionFilter);
   }
   displayFilteredProducts = () => {
     const filteredProducts = [];
 
     if (this.productSizeFilter.length == 0) {
       this.countProductsAvailable(this.listOfProducts.length);
-      return this.listOfProducts;
+
+      return this.filterBySortProducts(this.listOfProducts);
     } else {
       this.listOfProducts.forEach(element => {
         for (let i = 0; i < this.productSizeFilter.length; i++) {
@@ -45,9 +47,23 @@ class ProductStore {
         }
       });
       this.countProductsAvailable(filteredProducts.length);
-      return filteredProducts;
+      return this.filterBySortProducts(filteredProducts);
     }
   };
+  filterBySortProducts(listOfItems) {
+    const filteredProductsBySort = listOfItems.slice(0);
+    if (this.sortByOptionFilter === "LtoH") {
+      filteredProductsBySort.sort(function(a, b) {
+        return a.price - b.price;
+      });
+    } else if (this.sortByOptionFilter === "HtoL") {
+      filteredProductsBySort.sort(function(a, b) {
+        return b.price - a.price;
+      });
+    } else {
+    }
+    return filteredProductsBySort;
+  }
 }
 
 export default ProductStore;
