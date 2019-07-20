@@ -7,7 +7,10 @@ export default class ProductsContainer extends Component {
   render() {
     return (
       <div className="productsConatiner">
-        <StoreHeader sortByOptions={sortByOptions} />
+        <StoreHeader
+          sortByOptions={sortByOptions}
+          productStore={this.props.productStore}
+        />
         <ProductsList productStore={this.props.productStore} />
       </div>
     );

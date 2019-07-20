@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-
-export default class ProductsFound extends Component {
+import { observer } from "mobx-react";
+@observer
+class ProductsFound extends Component {
   render() {
-    return <div>Product(s) found.</div>;
+    return (
+      <div>{this.props.productStore.productsAvailable} Product(s) found.</div>
+    );
   }
 }
+export default ProductsFound;

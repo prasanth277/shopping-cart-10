@@ -11,15 +11,15 @@ export default class SizeOptions extends Component {
     this.setState({
       isSelected: !this.state.isSelected
     });
+    this.props.productStore.changeSizeFilter(this.props.size.label);
   };
   render() {
     return (
       <div
         className={!this.state.isSelected ? "size" : "activeSize"}
         onClick={this.onSelectSize}
-        value={this.props.size}
       >
-        {this.props.size}
+        {this.props.size.value}
       </div>
     );
   }
