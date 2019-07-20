@@ -2,15 +2,17 @@ import { observable } from "mobx";
 import { computed } from "mobx";
 import { action } from "mobx";
 import ProductItem from "../model/ProductItem";
+import CartStore from "./CartStore";
 class ProductStore {
   listOfProducts = [];
   @observable productSizeFilter = [];
   @observable sortByOptionFilter = "";
   @observable productsAvailable = 0;
+  cartStore = new CartStore();
 
   constructor(products) {
     this.listOfProducts = products.map(
-      productItem => new ProductItem(productItem)
+      productItem => new ProductItem(this, productItem)
     );
   }
   @action changeSizeFilter(filter) {
@@ -27,7 +29,7 @@ class ProductStore {
   }
   @action changeSortFilter(sortType) {
     this.sortByOptionFilter = sortType;
-    console.log(this.sortByOptionFilter);
+    console.log(this.CartStore.cartProductsList[0]);
   }
   displayFilteredProducts = () => {
     const filteredProducts = [];

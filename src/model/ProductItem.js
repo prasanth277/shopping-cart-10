@@ -12,8 +12,8 @@ class ProductItem {
   style = "";
   title = "";
   image = "";
-
-  constructor(productItem) {
+  productStore = "";
+  constructor(productStore, productItem) {
     this.availableSizes = productItem.availableSizes;
     this.currencyFormat = productItem.currencyFormat;
     this.currencyId = productItem.currencyId;
@@ -26,6 +26,10 @@ class ProductItem {
     this.style = productItem.style;
     this.title = productItem.title;
     this.image = productItem.image;
+    this.productStore = productStore;
+  }
+  addToCart() {
+    this.productStore.cartStore.push(this);
   }
 }
 export default ProductItem;

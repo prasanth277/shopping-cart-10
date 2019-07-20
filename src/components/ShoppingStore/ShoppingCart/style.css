@@ -1,0 +1,59 @@
+.cartContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartIcon {
+  height: 60px;
+  width: 60px;
+  background: black;
+  position: fixed;
+  right: 0;
+}
+.openCartIcon {
+  height: 60px;
+  width: 60px;
+  background: black;
+  position: fixed;
+  right: 500px;
+}
+.cartImage {
+  height: 60px;
+  width: 60px;
+}
+.closeCart {
+  width: 0;
+}
+.cartMenu {
+  height: 950px;
+  width: 500px;
+  background: rgb(27, 27, 27);
+  position: fixed;
+  right: 0;
+}
+.cartMessage {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  position: relative;
+}
+.cartImageinCart {
+  height: 100px;
+  width: 100px;
+}
+.cartLabel {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+.cartCount {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: rgb(255, 208, 0);
+  position: absolute;
+  top: 98px;
+  right: 245px;
+}
