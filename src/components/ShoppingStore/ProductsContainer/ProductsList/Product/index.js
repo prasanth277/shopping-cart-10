@@ -8,12 +8,9 @@ export default class Product extends Component {
     isHover: false
   };
   handleOver = () => {
-    this.setState(
-      {
-        isHover: true
-      },
-      () => console.log(this.state.isHover)
-    );
+    this.setState({
+      isHover: true
+    });
   };
   handleLeave = () => {
     this.setState({
@@ -32,7 +29,10 @@ export default class Product extends Component {
           isFreeShipping={this.props.product.isFreeShipping}
         />
         <ProductDetails product={this.props.product} />
-        <AddToCartButton isHover={this.state.isHover} />
+        <AddToCartButton
+          isHover={this.state.isHover}
+          product={this.props.product}
+        />
       </div>
     );
   }

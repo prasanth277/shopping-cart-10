@@ -10,6 +10,18 @@
   position: fixed;
   right: 0;
 }
+.outerCartNo {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: rgb(255, 208, 0);
+  position: absolute;
+  right: 1px;
+  top: 30px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 .openCartIcon {
   height: 60px;
   width: 60px;
@@ -56,4 +68,7 @@
   position: absolute;
   top: 98px;
   right: 245px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

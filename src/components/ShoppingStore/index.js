@@ -13,7 +13,7 @@ export default class ShoppingStore extends Component {
           productStore={this.props.productStore}
         />
         <ProductsContainer productStore={this.props.productStore} />
-        <ShoppingCart />
+        <ShoppingCart productStore={this.props.productStore} />
       </div>
     );
   }

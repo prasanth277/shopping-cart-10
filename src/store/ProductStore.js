@@ -29,7 +29,7 @@ class ProductStore {
   }
   @action changeSortFilter(sortType) {
     this.sortByOptionFilter = sortType;
-    console.log(this.CartStore.cartProductsList[0]);
+    //    console.log(this.cartStore.cartProductsList[0].price);
   }
   displayFilteredProducts = () => {
     const filteredProducts = [];
