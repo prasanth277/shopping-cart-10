@@ -7,8 +7,11 @@ export default class ShoppingCart extends Component {
   render() {
     return (
       <div className="viewComponents">
-        <SizeSelectionBar sizes={sizes} />
-        <ProductsContainer />
+        <SizeSelectionBar
+          sizes={sizes}
+          productStore={this.props.productStore}
+        />
+        <ProductsContainer productStore={this.props.productStore} />
       </div>
     );
   }

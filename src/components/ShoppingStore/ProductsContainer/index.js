@@ -8,7 +8,7 @@ export default class ProductsContainer extends Component {
     return (
       <div className="productsConatiner">
         <StoreHeader sortByOptions={sortByOptions} />
-        <ProductsList />
+        <ProductsList productStore={this.props.productStore} />
       </div>
     );
   }
