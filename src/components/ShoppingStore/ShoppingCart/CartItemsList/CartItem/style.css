@@ -1,4 +1,15 @@
 .cartItem {
+  margin-top: 5px;
+  height: 200px;
+  box-shadow: 1px 1px 1px 1px black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+.cartItemHover {
+  margin-top: 5px;
+  background: black;
   height: 200px;
   box-shadow: 1px 1px 1px 1px black;
   display: flex;
@@ -15,12 +26,29 @@
   display: flex;
   flex-direction: column;
 }
+
 .cartTitle {
   color: white;
   font-size: 22px;
 }
+.cartTitleHover {
+  color: grey;
+  font-size: 22px;
+  text-decoration: line-through;
+}
 .cartProductSize {
   color: grey;
+}
+.cartProductSizeHover {
+  color: grey;
+  text-decoration: line-through;
+}
+.quantity {
+  color: grey;
+}
+.quantityHover {
+  color: grey;
+  text-decoration: line-through;
 }
 .removeItem {
   position: absolute;

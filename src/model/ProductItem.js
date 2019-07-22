@@ -1,4 +1,6 @@
 import { observable } from "mobx";
+import { action } from "mobx";
+import { computed } from "mobx";
 
 class ProductItem {
   // productItem = {};
@@ -31,13 +33,13 @@ class ProductItem {
     this.image = productItem.image;
     this.productStore = productStore;
   }
-  addToCart() {
+  @action addToCart() {
     this.quantity++;
-    this.productStore.cartStore.addToCart(this, this.quantity);
+    this.productStore.cartStore.addToCart(this);
   }
-  removeFromCart() {
-    this.quantity--;
-    this.productStore.cartStore.removeFromCart(this, this.quantity);
+  @action removeFromCart() {
+    this.quantity = 0;
+    this.productStore.cartStore.removeFromCart(this);
   }
 }
 export default ProductItem;

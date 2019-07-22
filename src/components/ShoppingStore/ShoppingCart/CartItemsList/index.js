@@ -10,7 +10,18 @@ class CartItemsList extends Component {
     ));
   };
   render() {
-    return <div className="cartList">{this.displayCartList()}</div>;
+    return (
+      <div className="cartList">
+        {this.displayCartList().length === 0 ? (
+          <div className="noProducts">
+            <span className="addProducts">Add some products to cart</span>
+            <span className="smiley">:)</span>
+          </div>
+        ) : (
+          this.displayCartList()
+        )}
+      </div>
+    );
   }
 }
 export default CartItemsList;
