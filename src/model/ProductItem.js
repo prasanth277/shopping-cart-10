@@ -35,5 +35,9 @@ class ProductItem {
     this.quantity++;
     this.productStore.cartStore.addToCart(this, this.quantity);
   }
+  removeFromCart() {
+    this.quantity--;
+    this.productStore.cartStore.removeFromCart(this, this.quantity);
+  }
 }
 export default ProductItem;

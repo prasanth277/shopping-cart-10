@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import "./style.css";
 export default class CartItemsTotal extends Component {
-  getPriceOfCartProducts = () => {};
+  getPriceOfCartProducts = () => {
+    const { productStore } = this.props;
+  };
   render() {
     const { productStore } = this.props;
     return (

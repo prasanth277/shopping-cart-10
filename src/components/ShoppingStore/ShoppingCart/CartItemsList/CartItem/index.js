@@ -3,10 +3,13 @@ import "./style.css";
 import { observer } from "mobx-react";
 @observer
 class CartItem extends Component {
+  removeFromCart = () => {
+    this.props.item.removeFromCart();
+  };
   render() {
     return (
       <div className="cartItem">
-        <div className="removeItem">
+        <div className="removeItem" onClick={this.removeFromCart}>
           <img src="/assets/closeImage.png" className="closeIcon" />
         </div>
         <div>

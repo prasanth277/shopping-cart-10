@@ -7,4 +7,7 @@ export default class CartStore {
       this.cartProductsList.push(val);
     }
   }
+  removeFromCart(val) {
+    this.cartProductsList.splice(this.cartProductsList.indexOf(val), 1);
+  }
 }
