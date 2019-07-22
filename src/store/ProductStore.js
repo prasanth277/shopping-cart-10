@@ -39,11 +39,13 @@ class ProductStore {
       return this.filterBySortProducts(this.listOfProducts);
     } else {
       this.listOfProducts.forEach(element => {
-        for (let i = 0; i < this.productSizeFilter.length; i++) {
-          if (element.availableSizes.indexOf(this.productSizeFilter[i]) != -1) {
-            if (filteredProducts.indexOf(element) === -1) {
-              filteredProducts.push(element);
-            }
+        const length = element.availableSizes.filter(function(n) {
+          return this.has(n);
+        }, new Set(this.productSizeFilter)).length;
+
+        if (length !== 0) {
+          if (filteredProducts.indexOf(element) === -1) {
+            filteredProducts.push(element);
           }
         }
       });
