@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./style.css";
 export default class SortByOption extends Component {
   displayOptions = () => {
     return this.props.sortByOptions.map(element => (
@@ -13,7 +13,7 @@ export default class SortByOption extends Component {
     return (
       <div>
         <span>Order by </span>
-        <select onChange={this.changeSortFilter}>
+        <select onChange={this.changeSortFilter} className="dropDown">
           <option value="" disabled selected>
             Select
           </option>

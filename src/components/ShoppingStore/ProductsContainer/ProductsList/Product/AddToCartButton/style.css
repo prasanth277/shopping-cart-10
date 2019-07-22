@@ -10,6 +10,7 @@
   background: black;
   color: white;
   font-size: 18px;
+  cursor: pointer;
 }
 .addToCartbuttonActive {
   height: 65px;
@@ -19,4 +20,5 @@
   background: rgb(255, 196, 0);
   color: white;
   font-size: 18px;
+  cursor: pointer;
 }

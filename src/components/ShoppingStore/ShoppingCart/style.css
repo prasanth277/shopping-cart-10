@@ -9,6 +9,7 @@
   background: black;
   position: fixed;
   right: 0;
+  cursor: pointer;
 }
 .outerCartNo {
   height: 20px;
@@ -28,6 +29,7 @@
   background: black;
   position: fixed;
   right: 500px;
+  cursor: pointer;
 }
 .cartImage {
   height: 60px;

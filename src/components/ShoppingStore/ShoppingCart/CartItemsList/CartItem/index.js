@@ -53,7 +53,9 @@ class CartItem extends Component {
           </span>
         </div>
         <div className="priceContainer">
-          <span className="priceOfItem">
+          <span
+            className={this.state.onHover ? "priceOfItemHover" : "priceOfItem"}
+          >
             $ {this.props.item.price * this.props.item.quantity}
           </span>
         </div>
