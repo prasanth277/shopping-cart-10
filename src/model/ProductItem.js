@@ -3,7 +3,6 @@ import { action } from "mobx";
 import { computed } from "mobx";
 
 class ProductItem {
-  // productItem = {};
   availableSizes = [];
   currencyFormat = "";
   currencyId = "";

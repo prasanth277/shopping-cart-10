@@ -11,11 +11,6 @@ export default class CartStore {
   }
   removeFromCart(val, quantity) {
     this.cartProductsList.splice(this.cartProductsList.indexOf(val), 1);
-
-    // this.cartProductsList.forEach(element => {
-    //   this.totalPrice += element.price;
-    // });
-    console.log(quantity);
   }
   @computed get totalCartPrice() {
     var total = 0;
@@ -30,7 +25,7 @@ export default class CartStore {
     this.cartProductsList.forEach(element => {
       total = total + element.installments * element.quantity;
     });
-    console.log(total);
+
     return total;
   }
 }
