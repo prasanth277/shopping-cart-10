@@ -4,16 +4,41 @@ import { action } from "mobx";
 import ProductItem from "../model/ProductItem";
 import CartStore from "./CartStore";
 class ProductStore {
-  listOfProducts = [];
+  @observable listOfProducts = [];
   @observable productSizeFilter = [];
   @observable sortByOptionFilter = "";
   @observable productsAvailable = 0;
+  @observable apiStatus = "loading";
   cartStore = new CartStore();
 
-  constructor(products) {
+  getInstances(products) {
     this.listOfProducts = products.map(
       productItem => new ProductItem(this, productItem)
     );
+  }
+  fetchProducts() {
+    fetch("https://demo8129378.mockable.io/products/all/v1")
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          return Promise.reject({
+            status: response.status,
+            statusText: response.statusText
+          });
+        }
+      })
+      .then(response => {
+        this.changeAPIStatus("success");
+        this.getInstances(response.products);
+      })
+      .catch(err => {
+        console.log("error");
+        this.changeAPIStatus("error");
+      });
+  }
+  changeAPIStatus(val) {
+    this.apiStatus = val;
   }
   @action changeSizeFilter(filter) {
     const index = this.productSizeFilter.indexOf(filter);

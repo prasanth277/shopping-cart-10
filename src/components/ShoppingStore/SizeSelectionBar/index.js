@@ -4,7 +4,11 @@ import SizeOptions from "./SizeOptions";
 export default class SizeSelectionBar extends Component {
   displaySizes = () => {
     return this.props.sizes.map(size => (
-      <SizeOptions size={size} productStore={this.props.productStore} />
+      <SizeOptions
+        size={size}
+        productStore={this.props.productStore}
+        key={size.label}
+      />
     ));
   };
   render() {

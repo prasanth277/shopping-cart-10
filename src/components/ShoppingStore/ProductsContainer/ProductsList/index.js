@@ -8,7 +8,7 @@ class ProductsList extends Component {
   displayProducts = () => {
     return this.props.productStore
       .displayFilteredProducts()
-      .map(item => <Product product={item} />);
+      .map(item => <Product product={item} key={item.id} />);
   };
   render() {
     return <div className="productsInStore">{this.displayProducts()}</div>;
