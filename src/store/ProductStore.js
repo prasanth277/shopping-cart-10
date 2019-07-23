@@ -3,8 +3,8 @@ import { computed } from "mobx";
 import { action } from "mobx";
 import ProductItem from "../model/ProductItem";
 import CartStore from "./CartStore";
-import apiStatus from "../constants/apiStatus";
-import sortByOptions from "../constants/sortByOptions";
+import apiStatus from "../constants/networkConstants/apiStatus";
+import sortByOptions from "../constants/filters/sortByOptions";
 class ProductStore {
   @observable listOfProducts = [];
   @observable productSizeFilter = [];

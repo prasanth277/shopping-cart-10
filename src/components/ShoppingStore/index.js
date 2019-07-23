@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import SizeSelectionBar from "./SizeSelectionBar";
 import ProductsContainer from "./ProductsContainer";
 import ShoppingCart from "./ShoppingCart";
-import sizes from "../../constants/sizes";
+import sizes from "../../constants/filters/sizes";
 import Loader from "./Loader";
 import "./style.css";
 import APIFailed from "./APIFailed";
-import apiStatus from "../../constants/apiStatus";
+import apiStatus from "../../constants/networkConstants/apiStatus";
 import { observer } from "mobx-react";
 @observer
 class ShoppingStore extends Component {
