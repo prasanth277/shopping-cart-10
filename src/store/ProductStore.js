@@ -4,6 +4,7 @@ import { action } from "mobx";
 import ProductItem from "../model/ProductItem";
 import CartStore from "./CartStore";
 import apiStatus from "../constants/apiStatus";
+import sortByOptions from "../constants/sortByOptions";
 class ProductStore {
   @observable listOfProducts = [];
   @observable productSizeFilter = [];
@@ -81,11 +82,11 @@ class ProductStore {
   };
   filterBySortProducts(listOfItems) {
     const filteredProductsBySort = listOfItems.slice(0);
-    if (this.sortByOptionFilter === "LtoH") {
+    if (this.sortByOptionFilter === sortByOptions[1].value) {
       filteredProductsBySort.sort(function(a, b) {
         return a.price - b.price;
       });
-    } else if (this.sortByOptionFilter === "HtoL") {
+    } else if (this.sortByOptionFilter === sortByOptions[0].value) {
       filteredProductsBySort.sort(function(a, b) {
         return b.price - a.price;
       });

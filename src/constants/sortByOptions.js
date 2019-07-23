@@ -1,5 +1,5 @@
 const sortByOptions = [
-  { label: "Highest to lowest", value: "HtoL" },
-  { label: "Lowest to highest", value: "LtoH" }
+  { label: "Highest to lowest", value: "PriceHightoPriceLow" },
+  { label: "Lowest to highest", value: "PriceLowtoPriceHigh" }
 ];
 export default sortByOptions;
