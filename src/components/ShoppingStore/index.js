@@ -6,6 +6,7 @@ import sizes from "../../constants/sizes";
 import Loader from "./Loader";
 import "./style.css";
 import APIFailed from "./APIFailed";
+import apiStatus from "../../constants/apiStatus";
 import { observer } from "mobx-react";
 @observer
 class ShoppingStore extends Component {
@@ -13,9 +14,9 @@ class ShoppingStore extends Component {
     this.props.productStore.fetchProducts();
   }
   displayProductStore = () => {
-    if (this.props.productStore.apiStatus === "loading") {
+    if (this.props.productStore.apiStatus === apiStatus.loading) {
       return <Loader />;
-    } else if (this.props.productStore.apiStatus === "success") {
+    } else if (this.props.productStore.apiStatus === apiStatus.success) {
       return <ProductsContainer productStore={this.props.productStore} />;
     } else {
       return <APIFailed />;

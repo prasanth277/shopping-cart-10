@@ -3,12 +3,13 @@ import { computed } from "mobx";
 import { action } from "mobx";
 import ProductItem from "../model/ProductItem";
 import CartStore from "./CartStore";
+import apiStatus from "../constants/apiStatus";
 class ProductStore {
   @observable listOfProducts = [];
   @observable productSizeFilter = [];
   @observable sortByOptionFilter = "";
   @observable productsAvailable = 0;
-  @observable apiStatus = "loading";
+  @observable apiStatus = apiStatus.loading;
   cartStore = new CartStore();
 
   getInstances(products) {
@@ -29,12 +30,12 @@ class ProductStore {
         }
       })
       .then(response => {
-        this.changeAPIStatus("success");
+        this.changeAPIStatus(apiStatus.success);
         this.getInstances(response.products);
       })
       .catch(err => {
         console.log("error");
-        this.changeAPIStatus("error");
+        this.changeAPIStatus(apiStatus.failure);
       });
   }
   changeAPIStatus(val) {
