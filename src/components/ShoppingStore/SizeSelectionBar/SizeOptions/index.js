@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./style.css";
+
+import { Size, ActiveSize } from "./StyledComponent";
 export default class SizeOptions extends Component {
   constructor(props) {
     super(props);
@@ -15,12 +16,15 @@ export default class SizeOptions extends Component {
   };
   render() {
     return (
-      <div
-        className={!this.state.isSelected ? "size" : "activeSize"}
-        onClick={this.onSelectSize}
-      >
-        {this.props.value}
-      </div>
+      <>
+        {!this.state.isSelected ? (
+          <Size onClick={this.onSelectSize}>{this.props.value}</Size>
+        ) : (
+          <ActiveSize onClick={this.onSelectSize}>
+            {this.props.value}
+          </ActiveSize>
+        )}
+      </>
     );
   }
 }

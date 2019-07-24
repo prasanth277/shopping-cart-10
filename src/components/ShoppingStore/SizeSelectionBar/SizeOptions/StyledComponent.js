@@ -1,4 +1,6 @@
-.size {
+import styled from "styled-components";
+
+export const Size = styled.div`
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -9,16 +11,8 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
-.activeSize {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  margin: 5px;
+`;
+export const ActiveSize = styled(Size)`
   background-color: black;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
+`;
