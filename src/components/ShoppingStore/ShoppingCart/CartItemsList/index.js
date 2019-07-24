@@ -11,7 +11,7 @@ class CartItemsList extends Component {
   };
   render() {
     return (
-      <CartList>
+      <CartList length={this.displayCartList().length}>
         {this.displayCartList().length === 0 ? (
           <NoProducts>
             <AddProducts>Add some products to cart</AddProducts>

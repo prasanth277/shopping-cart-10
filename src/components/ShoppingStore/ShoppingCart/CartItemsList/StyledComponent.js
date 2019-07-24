@@ -5,7 +5,7 @@ export const CartList = styled.div`
   top: 200px;
   right: 0;
   height: 500px;
-  overflow: scroll;
+  overflow-y: ${props => (props.length >= 3 ? "scroll" : "")};
   width: 500px;
 `;
 export const AddProducts = styled.span`
