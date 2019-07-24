@@ -1,35 +1,45 @@
 import React, { Component } from "react";
-import "./style.css";
+import {
+  ProductDetailsContainer,
+  ProductTitle,
+  ProductTitleText,
+  PriceContainer,
+  PriceFormat,
+  ProductPrice,
+  InstallmentsContainer,
+  InstallmentsText,
+  InstallmentsCal
+} from "./StyledComponent.js";
 export default class ProductDetails extends Component {
   render() {
     const { product } = this.props;
     return (
-      <div className="productDetailsContainer">
-        <div className="productTitle">
-          <span className="productTitleText">{product.title}</span>
-        </div>
-        <div className="priceContainer">
-          <span>
+      <ProductDetailsContainer>
+        <ProductTitle>
+          <ProductTitleText>{product.title}</ProductTitleText>
+        </ProductTitle>
+        <PriceContainer>
+          <PriceFormat>
             {product.currencyFormat}
-            <span className="productPrice">{Math.floor(product.price)}</span>.
+            <ProductPrice>{Math.floor(product.price)}</ProductPrice>.
             {(product.price + "").split(".")[1]}
-          </span>
-        </div>
+          </PriceFormat>
+        </PriceContainer>
         {product.installments > 0 ? (
-          <div className="installMentsContainer">
-            <span>
+          <InstallmentsContainer>
+            <InstallmentsCal>
               or {product.installments}x
-              <span className="installmentsText">
+              <InstallmentsText>
                 {product.currencyFormat +
                   "" +
                   (product.price / product.installments).toFixed(2)}
-              </span>
-            </span>
-          </div>
+              </InstallmentsText>
+            </InstallmentsCal>
+          </InstallmentsContainer>
         ) : (
           ""
         )}
-      </div>
+      </ProductDetailsContainer>
     );
   }
 }
