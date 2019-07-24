@@ -1,8 +1,10 @@
-.buttonContainer {
+import styled from "styled-components";
+
+export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-}
-.addToCartbutton {
+`;
+export const AddToCartbutton = styled.button`
   height: 65px;
   width: 270px;
   margin: 10px;
@@ -11,14 +13,7 @@
   color: white;
   font-size: 18px;
   cursor: pointer;
-}
-.addToCartbuttonActive {
-  height: 65px;
-  width: 270px;
-  margin: 10px;
-  border: none;
+`;
+export const AddToCartbuttonActive = styled(AddToCartbutton)`
   background: rgb(255, 196, 0);
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
+`;

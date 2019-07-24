@@ -1,21 +1,26 @@
 import React, { Component } from "react";
-import "./style.css";
+import {
+  ButtonContainer,
+  AddToCartbutton,
+  AddToCartbuttonActive
+} from "./StyledComponent.js";
 export default class AddToCartButton extends Component {
   handleClick = () => {
     this.props.product.addToCart();
   };
   render() {
     return (
-      <div className="buttonContainer">
-        <button
-          className={
-            !this.props.isHover ? "addToCartbutton" : "addToCartbuttonActive"
-          }
-          onClick={this.handleClick}
-        >
-          Add to cart
-        </button>
-      </div>
+      <ButtonContainer>
+        {!this.props.isHover ? (
+          <AddToCartbutton onClick={this.handleClick}>
+            Add to cart
+          </AddToCartbutton>
+        ) : (
+          <AddToCartbuttonActive onClick={this.handleClick}>
+            Add to cart
+          </AddToCartbuttonActive>
+        )}
+      </ButtonContainer>
     );
   }
 }
