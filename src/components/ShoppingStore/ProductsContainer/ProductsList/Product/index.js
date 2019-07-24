@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ProductImage from "./ProductImage";
 import ProductDetails from "./ProductDetails";
 import AddToCartButton from "./AddToCartButton";
-import "./style.css";
+import { ProductContainer } from "./StyledComponent.js";
 export default class Product extends Component {
   state = {
     isHover: false
@@ -19,8 +19,7 @@ export default class Product extends Component {
   };
   render() {
     return (
-      <div
-        className="product"
+      <ProductContainer
         onMouseOver={this.handleOver}
         onMouseLeave={this.handleLeave}
       >
@@ -33,7 +32,7 @@ export default class Product extends Component {
           isHover={this.state.isHover}
           product={this.props.product}
         />
-      </div>
+      </ProductContainer>
     );
   }
 }

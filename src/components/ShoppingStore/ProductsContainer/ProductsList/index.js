@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Product from "./Product";
 import productsList from "../../../../constants/productsList";
-import "./style.css";
+import { ProductsInStore } from "./StyledComponent.js";
 import { observer } from "mobx-react";
 @observer
 class ProductsList extends Component {
@@ -11,7 +11,7 @@ class ProductsList extends Component {
       .map(item => <Product product={item} key={item.id} />);
   };
   render() {
-    return <div className="productsInStore">{this.displayProducts()}</div>;
+    return <ProductsInStore>{this.displayProducts()}</ProductsInStore>;
   }
 }
 export default ProductsList;
