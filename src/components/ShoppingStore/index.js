@@ -4,7 +4,7 @@ import ProductsContainer from "./ProductsContainer";
 import ShoppingCart from "./ShoppingCart";
 import sizes from "../../constants/filters/sizes";
 import Loader from "./Loader";
-import "./style.css";
+import { ViewComponents } from "./StyledComponent.js";
 import APIFailed from "./APIFailed";
 import apiStatus from "../../constants/networkConstants/apiStatus";
 import { observer } from "mobx-react";
@@ -24,14 +24,14 @@ class ShoppingStore extends Component {
   };
   render() {
     return (
-      <div className="viewComponents">
+      <ViewComponents>
         <SizeSelectionBar
           sizes={sizes}
           productStore={this.props.productStore}
         />
         {this.displayProductStore()}
         <ShoppingCart productStore={this.props.productStore} />
-      </div>
+      </ViewComponents>
     );
   }
 }

@@ -33,7 +33,7 @@ class CartItem extends Component {
   };
   render() {
     return (
-      <CartItemBlock onHover={this.state.onHover ? "onHover" : "notOnHover"}>
+      <CartItemBlock onHover={this.state.onHover}>
         <RemoveItem
           onClick={this.removeFromCart}
           onMouseOver={this.handleOver}
@@ -50,21 +50,19 @@ class CartItem extends Component {
           <CartProductImage src={this.props.item.image} />
         </CartProductDiv>
         <CartDetails>
-          <CartTitle onHover={this.state.onHover ? "onHover" : "notOnHover"}>
+          <CartTitle onHover={this.state.onHover}>
             {this.props.item.title}
           </CartTitle>
-          <CartProductSize
-            onHover={this.state.onHover ? "onHover" : "notOnHover"}
-          >
+          <CartProductSize onHover={this.state.onHover}>
             {" "}
             {this.props.item.availableSizes[0]}
           </CartProductSize>
-          <Quantity onHover={this.state.onHover ? "onHover" : "notOnHover"}>
+          <Quantity onHover={this.state.onHover}>
             Quantity:{this.props.item.quantity}
           </Quantity>
         </CartDetails>
         <PriceContainer>
-          <PriceOfItem>
+          <PriceOfItem onHover={this.state.onHover}>
             ${this.props.item.price * this.props.item.quantity}
           </PriceOfItem>
         </PriceContainer>

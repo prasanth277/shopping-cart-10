@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const CartItemBlock = styled.div`
-  margin-top: 5px;
+  margin-top: 3px;
   height: 200px;
   box-shadow: 1px 1px 1px 1px black;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: relative;
-  background: ${props => (props.onHover === "onHover" ? "black" : "#444242")};
+  background: ${props => (props.onHover ? "black" : "#282626")};
 `;
 export const RemoveItem = styled.div`
   position: absolute;
@@ -36,25 +36,16 @@ export const CartDetails = styled.div`
 export const CartTitle = styled.span`
   color: white;
   font-size: 22px;
-  text-decoration: ${props =>
-    props.onHover === "onHover" ? "line-through" : ""};
+  text-decoration: ${props => (props.onHover ? "line-through" : "")};
 `;
 
-export const CartProductSize = styled.span`
+export const CartProductSize = styled(CartTitle)`
   color: grey;
-  text-decoration: ${props =>
-    props.onHover === "onHover" ? "line-through" : ""};
 `;
-export const Quantity = styled.span`
-  color: grey;
-  text-decoration: ${props =>
-    props.onHover === "onHover" ? "line-through" : ""};
-`;
+export const Quantity = styled(CartProductSize)``;
 
-export const PriceOfItem = styled.span`
+export const PriceOfItem = styled(Quantity)`
   color: rgb(255, 217, 0);
   font-size: 20px;
-  text-decoration: ${props =>
-    props.onHover === "onHover" ? "line-through" : ""};
 `;
 export const PriceContainer = styled.div``;
