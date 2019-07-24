@@ -1,14 +1,16 @@
-.productImageContainer {
+import styled from "styled-components";
+
+export const ProductImageContainer = styled.div`
   position: relative;
-}
-.productImage {
+`;
+export const ProductImageSrc = styled.img`
   width: 300px;
   height: 450px;
-}
-.shippingText {
+`;
+export const ShippingText = styled.span`
   font-size: 12px;
-}
-.shippingDiv {
+`;
+export const ShippingDiv = styled.div`
   position: absolute;
   left: 210px;
   background: black;
@@ -18,4 +20,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+`;

@@ -1,18 +1,23 @@
 import React, { Component } from "react";
-import "./style.css";
+import {
+  ProductImageContainer,
+  ShippingDiv,
+  ShippingText,
+  ProductImageSrc
+} from "./StyledComponent.js";
 export default class ProductImage extends Component {
   render() {
     return (
-      <div className="productImageContainer">
+      <ProductImageContainer>
         {this.props.isFreeShipping ? (
-          <div className="shippingDiv">
-            <span className="shippingText">Free shipping</span>
-          </div>
+          <ShippingDiv>
+            <ShippingText>Free shipping</ShippingText>
+          </ShippingDiv>
         ) : (
           ""
         )}
-        <img src={this.props.image} className="productImage" />
-      </div>
+        <ProductImageSrc src={this.props.image} />
+      </ProductImageContainer>
     );
   }
 }
