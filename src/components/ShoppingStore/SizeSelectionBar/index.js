@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import "./style.css";
+import {
+  SizeIcon,
+  SizeLabel,
+  SizeText,
+  SelectionBar
+} from "./StyleComponent.js";
 import SizeOptions from "./SizeOptions";
 export default class SizeSelectionBar extends Component {
   displaySizes = () => {
@@ -13,12 +18,12 @@ export default class SizeSelectionBar extends Component {
   };
   render() {
     return (
-      <div className="sizeCon">
-        <div className="sizeLabel">
-          <span className="sizeText">Sizes:</span>
-        </div>
-        <div class="selectionBar">{this.displaySizes()}</div>
-      </div>
+      <SizeIcon>
+        <SizeLabel>
+          <SizeText>Sizes:</SizeText>
+        </SizeLabel>
+        <SelectionBar>{this.displaySizes()}</SelectionBar>
+      </SizeIcon>
     );
   }
 }
