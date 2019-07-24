@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import "./style.css";
+import {
+  SortByOptionsContainer,
+  OrderByText,
+  DropDown,
+  Option
+} from "./StyledComponent.js";
 export default class SortByOption extends Component {
   displayOptions = () => {
     return this.props.sortByOptions.map(element => (
@@ -11,15 +16,15 @@ export default class SortByOption extends Component {
   };
   render() {
     return (
-      <div>
-        <span>Order by </span>
-        <select onChange={this.changeSortFilter} className="dropDown">
-          <option value="" disabled selected>
+      <SortByOptionsContainer>
+        <OrderByText>Order by </OrderByText>
+        <DropDown onChange={this.changeSortFilter}>
+          <Option value="" disabled selected>
             Select
-          </option>
+          </Option>
           {this.displayOptions()}
-        </select>
-      </div>
+        </DropDown>
+      </SortByOptionsContainer>
     );
   }
 }
