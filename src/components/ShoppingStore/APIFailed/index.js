@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./style.css";
+import { FailedMessage, ErrorContainer } from "./StyledComponent.js";
 export default class APIFailed extends Component {
   render() {
     return (
-      <div className="errorContainer">
-        <span className="failedMessage">Failed to load data......</span>
-      </div>
+      <ErrorContainer>
+        <FailedMessage>Failed to load data......</FailedMessage>
+      </ErrorContainer>
     );
   }
 }

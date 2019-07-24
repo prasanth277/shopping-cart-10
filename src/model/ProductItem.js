@@ -1,6 +1,5 @@
 import { observable } from "mobx";
 import { action } from "mobx";
-import { computed } from "mobx";
 
 class ProductItem {
   availableSizes = [];

@@ -1,5 +1,4 @@
 import { observable } from "mobx";
-import { computed } from "mobx";
 import { action } from "mobx";
 import ProductItem from "../model/ProductItem";
 import CartStore from "./CartStore";
@@ -60,7 +59,7 @@ class ProductStore {
   displayFilteredProducts = () => {
     const filteredProducts = [];
 
-    if (this.productSizeFilter.length == 0) {
+    if (this.productSizeFilter.length === 0) {
       this.countProductsAvailable(this.listOfProducts.length);
 
       return this.filterBySortProducts(this.listOfProducts);

@@ -1,5 +1,17 @@
 import React, { Component } from "react";
-import "./style.css";
+import {
+  CartItemBlock,
+  RemoveItem,
+  CloseIcon,
+  CartProductImage,
+  CartDetails,
+  CartTitle,
+  CartProductDiv,
+  CartProductSize,
+  Quantity,
+  PriceOfItem,
+  PriceContainer
+} from "./StyledComponent.js";
 import { observer } from "mobx-react";
 @observer
 class CartItem extends Component {
@@ -21,45 +33,42 @@ class CartItem extends Component {
   };
   render() {
     return (
-      <div className={this.state.onHover ? "cartItemHover" : "cartItem"}>
-        <div
-          className="removeItem"
+      <CartItemBlock onHover={this.state.onHover ? "onHover" : "notOnHover"}>
+        <RemoveItem
           onClick={this.removeFromCart}
           onMouseOver={this.handleOver}
           onMouseLeave={this.handleLeave}
         >
           {this.state.onHover ? (
-            <img src="/assets/close.jpg" className="closeIcon" />
+            <CloseIcon src="/assets/close.jpg" />
           ) : (
-            <img src="/assets/closeImage.png" className="closeIcon" />
+            <CloseIcon src="/assets/closeImage.png" />
           )}
-        </div>
-        <div>
-          <img src={this.props.item.image} className="cartProductImage" />
-        </div>
-        <div className="cartDetails">
-          <span className={this.state.onHover ? "cartTitleHover" : "cartTitle"}>
+        </RemoveItem>
+
+        <CartProductDiv>
+          <CartProductImage src={this.props.item.image} />
+        </CartProductDiv>
+        <CartDetails>
+          <CartTitle onHover={this.state.onHover ? "onHover" : "notOnHover"}>
             {this.props.item.title}
-          </span>
-          <span
-            className={
-              this.state.onHover ? "cartProductSizeHover" : "cartProductSize"
-            }
+          </CartTitle>
+          <CartProductSize
+            onHover={this.state.onHover ? "onHover" : "notOnHover"}
           >
+            {" "}
             {this.props.item.availableSizes[0]}
-          </span>
-          <span className={this.state.onHover ? "quantityHover" : "quantity"}>
-            Quantity: {this.props.item.quantity}
-          </span>
-        </div>
-        <div className="priceContainer">
-          <span
-            className={this.state.onHover ? "priceOfItemHover" : "priceOfItem"}
-          >
-            $ {this.props.item.price * this.props.item.quantity}
-          </span>
-        </div>
-      </div>
+          </CartProductSize>
+          <Quantity onHover={this.state.onHover ? "onHover" : "notOnHover"}>
+            Quantity:{this.props.item.quantity}
+          </Quantity>
+        </CartDetails>
+        <PriceContainer>
+          <PriceOfItem>
+            ${this.props.item.price * this.props.item.quantity}
+          </PriceOfItem>
+        </PriceContainer>
+      </CartItemBlock>
     );
   }
 }
