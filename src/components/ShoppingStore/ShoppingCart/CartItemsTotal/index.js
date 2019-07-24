@@ -1,5 +1,14 @@
 import React, { Component } from "react";
-import "./style.css";
+import {
+  CartTotalBlock,
+  CartSubTotal,
+  SubTotalLabel,
+  CartTotal,
+  PriceBlock,
+  InstallDetails,
+  CheckOutBlock,
+  CheckOut
+} from "./StyledComponent.js";
 import { observer } from "mobx-react";
 @observer
 class CartItemsTotal extends Component {
@@ -9,15 +18,15 @@ class CartItemsTotal extends Component {
   render() {
     const { productStore } = this.props;
     return (
-      <div className="cartTotalBlock">
-        <div className="cartSubTotal">
-          <span className="SubTotalLabel">SUBTOTAL</span>
+      <CartTotalBlock>
+        <CartSubTotal>
+          <SubTotalLabel>SUBTOTAL</SubTotalLabel>
 
-          <span className="cartTotal">
+          <CartTotal>
             ${this.props.productStore.cartStore.totalCartPrice.toFixed(2)}
-          </span>
-          <div className="priceBlock">
-            <span className="installDetails">
+          </CartTotal>
+          <PriceBlock>
+            <InstallDetails>
               {this.props.productStore.cartStore.totalCartInstallments !== 0
                 ? " OR UP TO " +
                   this.props.productStore.cartStore.totalCartInstallments +
@@ -27,13 +36,13 @@ class CartItemsTotal extends Component {
                     this.props.productStore.cartStore.totalCartInstallments
                   ).toFixed(2)
                 : ""}
-            </span>
-          </div>
-        </div>
-        <div className="checkOutBlock">
-          <div className="checkOut">checkout</div>
-        </div>
-      </div>
+            </InstallDetails>
+          </PriceBlock>
+        </CartSubTotal>
+        <CheckOutBlock>
+          <CheckOut>checkout</CheckOut>
+        </CheckOutBlock>
+      </CartTotalBlock>
     );
   }
 }

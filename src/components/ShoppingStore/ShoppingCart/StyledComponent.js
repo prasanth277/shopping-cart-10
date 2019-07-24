@@ -1,17 +1,24 @@
-.cartContent {
+import styled from "styled-components";
+
+export const CartContent = styled.div`
   display: flex;
   flex-direction: column;
-}
+`;
+export const CartIconContent = styled.div``;
 
-.cartIcon {
+export const CartIcon = styled.div`
   height: 60px;
   width: 60px;
   background: black;
   position: fixed;
   right: 0;
   cursor: pointer;
-}
-.outerCartNo {
+`;
+export const OpenCartIcon = styled(CartIcon)`
+  position: fixed;
+  right: 500px;
+`;
+export const OuterCartNo = styled.div`
   height: 20px;
   width: 20px;
   border-radius: 50%;
@@ -22,47 +29,34 @@
   display: flex;
   justify-content: center;
   align-content: center;
-}
-.openCartIcon {
+`;
+
+export const CartImage = styled.img`
   height: 60px;
   width: 60px;
-  background: black;
-  position: fixed;
-  right: 500px;
-  cursor: pointer;
-}
-.cartImage {
-  height: 60px;
-  width: 60px;
-}
-.closeCart {
-  width: 0;
-}
-.cartMenu {
+`;
+
+export const CartMenu = styled.div`
   height: 950px;
   width: 500px;
   background: rgb(27, 27, 27);
   position: fixed;
   right: 0;
-}
-.cartMessage {
+  display: flex;
+  flex-direction: column;
+`;
+export const CloseCart = styled.div`
+  width: 0;
+`;
+export const CartMessage = styled.div`
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: black;
   position: relative;
-}
-.cartImageinCart {
-  height: 100px;
-  width: 100px;
-}
-.cartLabel {
-  color: white;
-  font-size: 25px;
-  font-weight: bold;
-}
-.cartCount {
+`;
+export const CartCount = styled.div`
   height: 25px;
   width: 25px;
   border-radius: 50%;
@@ -73,4 +67,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+`;
+export const CartImageinCart = styled.img`
+  height: 100px;
+  width: 100px;
+`;
+export const CartLabel = styled.span`
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+`;

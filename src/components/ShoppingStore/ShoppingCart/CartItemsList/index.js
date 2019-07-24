@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./style.css";
+import { CartList, NoProducts, AddProducts, Smiley } from "./StyledComponent";
 import CartItem from "./CartItem";
 import { observer } from "mobx-react";
 @observer
@@ -11,16 +11,16 @@ class CartItemsList extends Component {
   };
   render() {
     return (
-      <div className="cartList">
+      <CartList>
         {this.displayCartList().length === 0 ? (
-          <div className="noProducts">
-            <span className="addProducts">Add some products to cart</span>
-            <span className="smiley">:)</span>
-          </div>
+          <NoProducts>
+            <AddProducts>Add some products to cart</AddProducts>
+            <Smiley>:)</Smiley>
+          </NoProducts>
         ) : (
           this.displayCartList()
         )}
-      </div>
+      </CartList>
     );
   }
 }

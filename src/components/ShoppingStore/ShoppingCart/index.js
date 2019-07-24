@@ -1,5 +1,18 @@
 import React, { Component } from "react";
-import "./style.css";
+import {
+  CartContent,
+  CartIconContent,
+  CartIcon,
+  OpenCartIcon,
+  CartImage,
+  OuterCartNo,
+  CartMenu,
+  CloseCart,
+  CartMessage,
+  CartCount,
+  CartImageinCart,
+  CartLabel
+} from "./StyledComponent.js";
 import CartItemsList from "./CartItemsList";
 import CartItemsTotal from "./CartItemsTotal";
 import { observer } from "mobx-react";
@@ -15,46 +28,35 @@ class ShoppingCart extends Component {
   };
   render() {
     return (
-      <div className="cartContent">
-        <div
-          className={this.state.isCartVisible ? "openCartIcon" : "cartIcon"}
-          onClick={this.showCartMenu}
-        >
-          {this.state.isCartVisible ? (
-            <img src="/assets/close.jpg" className="cartImage" />
-          ) : (
-            <>
-              <div className="outerCartNo">
+      <CartContent className="cartContent">
+        {this.state.isCartVisible ? (
+          <OpenCartIcon onClick={this.showCartMenu}>
+            <CartImage src="/assets/close.jpg" />
+          </OpenCartIcon>
+        ) : (
+          <CartIcon onClick={this.showCartMenu}>
+            <OuterCartNo>
+              {this.props.productStore.cartStore.cartProductsList.length}
+            </OuterCartNo>
+            <CartImage src="/assets/cartImage.png" />
+          </CartIcon>
+        )}
+        {this.state.isCartVisible ? (
+          <CartMenu>
+            <CartMessage>
+              <CartCount>
                 {this.props.productStore.cartStore.cartProductsList.length}
-              </div>
-              <img src="/assets/cartImage.png" className="cartImage" />
-            </>
-          )}
-        </div>
-        <div className={this.state.isCartVisible ? "cartMenu" : "closeCart"}>
-          {!this.state.isCartVisible ? (
-            ""
-          ) : (
-            <div className="cartMessage">
-              <div className="cartCount">
-                {this.props.productStore.cartStore.cartProductsList.length}
-              </div>
-              <img src="/assets/cartImage.png" className="cartImageinCart" />
-              <span className="cartLabel">Cart</span>
-            </div>
-          )}
-          {this.state.isCartVisible ? (
+              </CartCount>
+              <CartImageinCart src="/assets/cartImage.png" />
+              <CartLabel>Cart</CartLabel>
+            </CartMessage>
             <CartItemsList productStore={this.props.productStore} />
-          ) : (
-            ""
-          )}
-          {this.state.isCartVisible ? (
             <CartItemsTotal productStore={this.props.productStore} />
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
+          </CartMenu>
+        ) : (
+          <CloseCart />
+        )}
+      </CartContent>
     );
   }
 }
