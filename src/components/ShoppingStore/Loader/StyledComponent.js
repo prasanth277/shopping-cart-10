@@ -11,7 +11,8 @@ const rotate = keyframes`
 export const LoaderApi = styled.div`
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
+  border-top: 16px solid black;
+  border-bottom: 16px solid black;
   width: 120px;
   height: 120px;
   animation: ${rotate} 2s linear infinite;

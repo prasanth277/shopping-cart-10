@@ -9,16 +9,22 @@ import {
   InputPassword,
   Button,
   Label,
-  Alert
+  Alert,
+  ButtonLabel,
+  Loader
 } from "./StyledComponent";
 
 const authenticate = new AuthenticationStore();
 @withRouter
 class LoginPage extends Component {
   state = {
-    isVerified: false
+    isVerified: false,
+    isLoading: false
   };
   submitDetails = e => {
+    this.setState({
+      isLoading: true
+    });
     authenticate.postLogiInCredentials(
       this.onSuccessLogin,
       this.onFailedLogin,
@@ -26,9 +32,15 @@ class LoginPage extends Component {
     );
   };
   onSuccessLogin = () => {
+    this.setState({
+      isLoading: false
+    });
     this.props.history.push("/");
   };
   onFailedLogin = () => {
+    this.setState({
+      isLoading: false
+    });
     this.props.history.push("/login/");
   };
   goToSignup = () => {
@@ -53,8 +65,15 @@ class LoginPage extends Component {
             placeholder="Password"
             onChange={authenticate.handlePasswordChange}
           />
-          {this.state.isVerified ? <Alert>Not a valid details</Alert> : ""}
-          <Button onClick={this.submitDetails}>LOGIN</Button>
+          {this.state.isVerified ? (
+            <Alert>Couldn't find your account</Alert>
+          ) : (
+            ""
+          )}
+          <Button onClick={this.submitDetails}>
+            {this.state.isLoading ? <Loader /> : ""}
+            <ButtonLabel>LOGIN</ButtonLabel>
+          </Button>
 
           <Label onClick={this.goToSignup}>Sign up</Label>
         </AuthenticationDetails>

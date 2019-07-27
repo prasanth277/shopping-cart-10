@@ -11,30 +11,39 @@ import {
   StatusMessage,
   StatusLabel,
   StatusMessageFail,
-  StatusLabelFail
+  StatusLabelFail,
+  ButtonLabel,
+  Loader
 } from "../LoginPage/StyledComponent";
 const authenticate = new AuthenticationStore();
 @withRouter
 class SignUpPage extends Component {
   state = {
-    isRegistered: ""
+    isRegistered: "",
+    isLoading: false
   };
   registerationSuccess = () => {
     this.setState({
-      isRegistered: true
+      isRegistered: true,
+      isLoading: false
     });
   };
   registerationFail = () => {
     this.setState({
-      isRegistered: false
+      isRegistered: false,
+      isLoading: false
     });
   };
   submitDetails = e => {
+    this.setState({
+      isLoading: true
+    });
     authenticate.postSignUpCredentials(
       this.registerationSuccess,
       this.registerationFail
     );
   };
+
   displayStatus = () => {
     if (this.state.isRegistered === true) {
       return (
@@ -69,7 +78,10 @@ class SignUpPage extends Component {
             onChange={authenticate.handlePasswordChange}
           />
 
-          <Button onClick={this.submitDetails}>SIGN UP</Button>
+          <Button onClick={this.submitDetails}>
+            {this.state.isLoading ? <Loader /> : ""}
+            <ButtonLabel>SIGN UP</ButtonLabel>
+          </Button>
 
           <Label onClick={this.goToLogin}>Log in</Label>
         </AuthenticationDetails>

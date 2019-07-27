@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const AuthenticationDetails = styled.div`
   height: 400px;
@@ -32,7 +32,7 @@ export const InputPassword = styled(InputUserName)`
   position: absolute;
   top: 180px;
 `;
-export const Button = styled.button`
+export const Button = styled.div`
   width: 180px;
   height: 38px;
   border: none;
@@ -44,7 +44,31 @@ export const Button = styled.button`
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+export const ButtonLabel = styled.span``;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+export const Loader = styled.div`
+  border: 5px solid #0abb75;
+  border-radius: 50%;
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+  width: 20px;
+  height: 20px;
+  animation: ${rotate} 1s linear infinite;
+`;
+
 export const Label = styled.span`
   font-size: 15px;
   position: absolute;
@@ -57,8 +81,8 @@ export const Label = styled.span`
 export const StatusMessage = styled.div`
   height: 65px;
   width: 450px;
+  border-radius: 10px;
   background: #bae8ba;
-  box-shadow: 1px 1px 1px 1px grey;
   position: absolute;
   top: 725px;
   display: flex;
@@ -77,6 +101,10 @@ export const StatusLabelFail = styled.span`
   color: red;
 `;
 export const Alert = styled.span`
-  font-size: 20px;
+  font-size: 12px;
   color: red;
+  position: absolute;
+  top: 220px;
+  left: 46px;
+  font-weight: inherit;
 `;

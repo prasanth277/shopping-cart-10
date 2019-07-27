@@ -4,6 +4,8 @@ import ProductItem from "../model/ProductItem";
 import CartStore from "./CartStore";
 import apiStatus from "../constants/networkConstants/apiStatus";
 import sortByOptions from "../constants/filters/sortByOptions";
+import * as Cookies from "js-cookie";
+
 class ProductStore {
   @observable listOfProducts = [];
   @observable productSizeFilter = [];
@@ -18,7 +20,14 @@ class ProductStore {
     );
   }
   fetchProducts() {
-    fetch("https://demo8129378.mockable.io/products/all/v1")
+    const options = {
+      method: "POST",
+      headers: {
+        authorization: Cookies.get("loginUser"),
+        "Content-Type": "application/json"
+      }
+    };
+    fetch("https://user-shopping-cart.getsandbox.com/products/v1/", options)
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -92,6 +101,9 @@ class ProductStore {
     } else {
     }
     return filteredProductsBySort;
+  }
+  clearCookie() {
+    Cookies.remove("loginUser");
   }
 }
 
