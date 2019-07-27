@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 export const AuthenticationDetails = styled.div`
   height: 400px;
   width: 350px;
-  box-shadow: 1px 1px 1px 1px grey;
+  box-shadow: 1px 1px 10px 0px grey;
   display: flex;
   flex-direction: column;
   justify-content: center;

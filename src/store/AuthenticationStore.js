@@ -1,6 +1,7 @@
 import { observable } from "mobx";
 import { action } from "mobx";
 import * as Cookies from "js-cookie";
+import FetchAPICall from "../NetworkCalls/FetchAPICall";
 class AuthenticationStore {
   @observable userName = "";
   @observable password = "";
@@ -19,14 +20,10 @@ class AuthenticationStore {
       username: this.userName,
       password: this.password
     };
-    const options = {
-      method: "POST",
-      body: JSON.stringify(Request),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
-    fetch("https://user-shopping-cart.getsandbox.com/sign_up/v1/", options)
+    FetchAPICall(
+      "https://user-shopping-cart.getsandbox.com/sign_up/v1/",
+      Request
+    )
       .then(res => res.json())
       .then(res => {
         if (res.status === "ok") {
@@ -52,15 +49,7 @@ class AuthenticationStore {
       username: this.userName,
       password: this.password
     };
-    const options = {
-      method: "POST",
-      body: JSON.stringify(Request),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
-
-    fetch("https://user-shopping-cart.getsandbox.com/login/v1/", options)
+    FetchAPICall("https://user-shopping-cart.getsandbox.com/login/v1/", Request)
       .then(res => res.json())
       .then(res => {
         if (res.status === "ok") {

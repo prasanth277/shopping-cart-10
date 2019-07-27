@@ -51,6 +51,11 @@ class LoginPage extends Component {
       isVerified: true
     });
   };
+  removeAlert = () => {
+    this.setState({
+      isVerified: false
+    });
+  };
   render() {
     return (
       <Container>
@@ -59,6 +64,7 @@ class LoginPage extends Component {
             type="text"
             placeholder="Username"
             onChange={authenticate.handleUserNameChange}
+            onFocus={this.removeAlert}
           />
           <InputPassword
             type="password"
