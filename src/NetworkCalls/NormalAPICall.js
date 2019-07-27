@@ -1,8 +1,10 @@
-export default function FetchAPICall(endPoint, object) {
+import * as Cookies from "js-cookie";
+
+export default function NormalAPICall(endPoint) {
   const options = {
     method: "POST",
-    body: JSON.stringify(object),
     headers: {
+      authorization: Cookies.get("loginUser"),
       "Content-Type": "application/json"
     }
   };

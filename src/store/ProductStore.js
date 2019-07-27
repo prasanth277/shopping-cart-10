@@ -5,7 +5,7 @@ import CartStore from "./CartStore";
 import apiStatus from "../constants/networkConstants/apiStatus";
 import sortByOptions from "../constants/filters/sortByOptions";
 import * as Cookies from "js-cookie";
-
+import NormalAPICall from "../NetworkCalls/NormalAPICall";
 class ProductStore {
   @observable listOfProducts = [];
   @observable productSizeFilter = [];
@@ -20,14 +20,7 @@ class ProductStore {
     );
   }
   fetchProducts() {
-    const options = {
-      method: "POST",
-      headers: {
-        authorization: Cookies.get("loginUser"),
-        "Content-Type": "application/json"
-      }
-    };
-    fetch("https://user-shopping-cart.getsandbox.com/products/v1/", options)
+    NormalAPICall("https://user-shopping-cart.getsandbox.com/products/v1/")
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -43,7 +36,6 @@ class ProductStore {
         this.getInstances(response.products);
       })
       .catch(err => {
-        console.log("error");
         this.changeAPIStatus(apiStatus.failure);
       });
   }
