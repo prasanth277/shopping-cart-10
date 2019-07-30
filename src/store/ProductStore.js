@@ -42,7 +42,8 @@ class ProductStore {
   changeAPIStatus(val) {
     this.apiStatus = val;
   }
-  @action changeSizeFilter(filter) {
+  @action.bound
+  changeSizeFilter(filter) {
     const index = this.productSizeFilter.indexOf(filter);
 
     if (index > -1) {

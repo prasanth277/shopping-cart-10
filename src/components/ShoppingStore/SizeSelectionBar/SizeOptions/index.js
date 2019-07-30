@@ -16,15 +16,17 @@ export default class SizeOptions extends Component {
   };
   render() {
     return (
-      <>
+      <React.Fragment>
         {!this.state.isSelected ? (
-          <Size onClick={this.onSelectSize}>{this.props.value}</Size>
+          <Size onClick={this.onSelectSize} data-testid="size">
+            {this.props.value}{" "}
+          </Size>
         ) : (
-          <ActiveSize onClick={this.onSelectSize}>
+          <ActiveSize onClick={this.onSelectSize} data-testid="activeSize">
             {this.props.value}
           </ActiveSize>
         )}
-      </>
+      </React.Fragment>
     );
   }
 }

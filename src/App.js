@@ -2,12 +2,7 @@ import React from "react";
 import "./App.css";
 import ShoppingStore from "./components/ShoppingStore";
 import ProductStore from "./store/ProductStore";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import SignUpPage from "./components/SignUpPage";
 import * as Cookies from "js-cookie";

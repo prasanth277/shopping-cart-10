@@ -2,11 +2,18 @@
   "name": "react-mobx-starter-kit",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "@testing-library/react": "^8.0.7",
+    "jest-dom": "^4.0.0",
+    "jest-styled-components": "^6.3.3",
+    "react-testing-library": "^8.0.1"
+  },
   "dependencies": {
     "@babel/core": "7.4.3",
     "@babel/plugin-proposal-decorators": "7.4.4",
     "@svgr/webpack": "4.1.0",
+    "@testing-library/jest-dom": "^4.0.0",
+    "@types/jest": "^24.0.16",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
     "babel-eslint": "10.0.1",
