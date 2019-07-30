@@ -5,7 +5,7 @@ import { ProductsDisplay } from "./StyledComponent";
 class ProductsFound extends Component {
   render() {
     return (
-      <ProductsDisplay>
+      <ProductsDisplay data-testid="productsAvailable">
         {this.props.productStore.productsAvailable} Product(s) found.
       </ProductsDisplay>
     );

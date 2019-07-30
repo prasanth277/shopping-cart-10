@@ -18,7 +18,7 @@ export default class SortByOption extends Component {
     return (
       <SortByOptionsContainer>
         <OrderByText>Order by </OrderByText>
-        <DropDown onChange={this.changeSortFilter}>
+        <DropDown onChange={this.changeSortFilter} data-testid="options">
           <Option value="" disabled selected>
             Select
           </Option>
