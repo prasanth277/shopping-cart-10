@@ -8,8 +8,6 @@ import {
   SignOutLabel
 } from "./StyleComponent.js";
 import SizeOptions from "./SizeOptions";
-import { withRouter } from "react-router-dom";
-@withRouter
 class SizeSelectionBar extends Component {
   displaySizes = () => {
     return this.props.sizes.map(size => (
@@ -30,10 +28,9 @@ class SizeSelectionBar extends Component {
         <SizeLabel>
           <SizeText>Sizes:</SizeText>
         </SizeLabel>
-        <SelectionBar>{this.displaySizes()}</SelectionBar>
-        <SignOutButton onClick={this.signOutFromHome}>
-          <SignOutLabel>signout</SignOutLabel>
-        </SignOutButton>
+        <SelectionBar data-testid="selectionBar">
+          {this.displaySizes()}
+        </SelectionBar>
       </SizeIcon>
     );
   }
